@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<title>Yahoo!!</title>
+</head>
+<script>
+function validateForm()
+{
+    if(document.frm.name.value=="")
+    {
+      alert("User Name should be left blank");
+      document.frm.name.focus();
+      return false;
+    }
+    else if(document.frm.password.value=="")
+    {
+      alert("Password should be left blank");
+      document.frm.password.focus();
+      return false;
+    }
+}
+</script>
+
+<body>
+	<p>
+		<font color="red" th:text="${errorMessage}">Error</font>
+	</p>
+	<form name="frm" onSubmit="return validateForm()" action="/saveUser" method="POST">
+
+
+		Name : <input name="username" type="text" /> 
+		Role : <input name="role" type="text" /> 
+		Password : <input name="password" type="password" /> <input type="submit" />
+	</form>
+</body>
+</html>
